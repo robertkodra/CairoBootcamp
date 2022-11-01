@@ -3,6 +3,7 @@
 %lang starknet
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
+from starkware.cairo.common.math import assert_nn
 
 // Define a storage variable.
 @storage_var
@@ -16,6 +17,8 @@ func get_balance{
     pedersen_ptr: HashBuiltin*,
     range_check_ptr,
 }() -> (res: felt) {
+    let (value) = balance.read();
+    return (res=value);
 }
 
 // Sets the balance to amount
@@ -25,4 +28,6 @@ func set_balance{
     pedersen_ptr: HashBuiltin*,
     range_check_ptr,
 }(amount: felt) {
+    balance.write(amount);
+    return();
 }

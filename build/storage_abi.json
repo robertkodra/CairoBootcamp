@@ -1,5 +1,31 @@
 [
     {
+        "data": [
+            {
+                "name": "previousOwner",
+                "type": "felt"
+            },
+            {
+                "name": "newOwner",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "name": "owner",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
         "inputs": [],
         "name": "get_balance",
         "outputs": [

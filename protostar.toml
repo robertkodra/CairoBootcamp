@@ -9,5 +9,3 @@ storage = [
     "./exercises/contracts/storage/storage.cairo"
 ]
 
-["protostar.shared_command_configs"]
-cairo_path = ["./libs/cairo_contracts/src"]

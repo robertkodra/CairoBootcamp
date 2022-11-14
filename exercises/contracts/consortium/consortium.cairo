@@ -147,10 +147,6 @@ func add_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_pt
             tempvar pedersen_ptr = pedersen_ptr;
             tempvar range_check_ptr = range_check_ptr;
         }
-
-        tempvar syscall_ptr = syscall_ptr;
-        tempvar pedersen_ptr = pedersen_ptr;
-        tempvar range_check_ptr = range_check_ptr;
     } else {
         tempvar syscall_ptr = syscall_ptr;
         tempvar pedersen_ptr = pedersen_ptr;
@@ -159,7 +155,6 @@ func add_proposal{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_pt
 
     if (ans_len == 0) {
         // increment the proposal id of the consortium
-        // tempvar new_proposal_id = proposal_id + 1;
         proposals_idx.write(consortium_idx, proposal_id + 1);
 
         // increment the number of proposal of the consortium
@@ -263,7 +258,6 @@ func vote_answer{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr
     // take into account the vote of the caller
     let (answer) = proposals_answers.read(consortium_idx, proposal_idx, answer_idx);
     tempvar current_answer_votes = answer.votes;
-    // assert answer.votes = current_answer_votes + member.votes;
 
     proposals_answers.write(
         consortium_idx,

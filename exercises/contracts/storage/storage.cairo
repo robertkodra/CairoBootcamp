@@ -4,10 +4,19 @@
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from starkware.cairo.common.math import assert_nn
+from openzeppelin.access.ownable.library import Ownable
+
 
 // Define a storage variable.
 @storage_var
 func balance() -> (res: felt) {
+}
+
+
+@constructor
+func constructor{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr} (owner: felt) {
+    Ownable.initializer(owner);
+    return();
 }
 
 // Returns the current balance.
